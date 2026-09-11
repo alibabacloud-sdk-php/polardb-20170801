@@ -19,12 +19,24 @@ class DescribeKBSyncLinksRequest extends Model
     public $knowledgeBaseId;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'imPlatform' => 'ImPlatform',
         'knowledgeBaseId' => 'KnowledgeBaseId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
     ];
 
@@ -42,6 +54,14 @@ class DescribeKBSyncLinksRequest extends Model
 
         if (null !== $this->knowledgeBaseId) {
             $res['KnowledgeBaseId'] = $this->knowledgeBaseId;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->regionId) {
@@ -65,6 +85,14 @@ class DescribeKBSyncLinksRequest extends Model
 
         if (isset($map['KnowledgeBaseId'])) {
             $model->knowledgeBaseId = $map['KnowledgeBaseId'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['RegionId'])) {
